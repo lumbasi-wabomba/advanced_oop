@@ -15,9 +15,19 @@ public class Sedan extends Vehicle implements Automobile {
         } else {
             speed += 10;
             rpm += 500;
-            System.out.println("Sedan accelerating smoothly to: " + speed + " km/h (RPM: " + rpm + ")");
+            System.out.println("Sedan accelerating smoothly to: " + speed + " km/h ");
         }
     }
+    void accelerate(int targetInc) {
+        if (speed + targetInc > MAX_SPEED) {
+            System.out.println("Sedan cannot accelerate beyond maximum speed of " + MAX_SPEED + " km/h.");
+        } else {
+            speed += targetInc;
+            rpm += (500 * (targetInc / 10));
+            System.out.println("Sedan accelerating smoothly to: " + speed + " km/h ");
+        }
+    }
+
 
     @Override
     void stop() {
@@ -38,7 +48,7 @@ public class Sedan extends Vehicle implements Automobile {
             rpm += 1200;
             speed += (rpm / 120);
             if (speed > MAX_SPEED) speed = MAX_SPEED;
-            System.out.println("Sedan accelerated with gas to: " + speed + " km/h (RPM: " + rpm + ")");
+            System.out.println("Sedan accelerated with gas to: " + speed + " km/h");
         }
     }
 
